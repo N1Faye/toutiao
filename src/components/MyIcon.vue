@@ -1,9 +1,15 @@
 <template>
-  <router-view></router-view>
+  <i class="toutiao" :class="'toutiao-' + name"></i>
 </template>
 
 <script>
 export default {
+  props: {
+    name: {
+      type: String,
+      required: true
+    }
+  },
   created () { },
   data () {
     return {}
@@ -16,5 +22,8 @@ export default {
 }
 </script>
 
-<style >
+<style scoped lang='less'>
+.toutiao {
+  font-size: 40px;
+}
 </style>

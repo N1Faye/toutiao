@@ -8,7 +8,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    user: {}
+    user: {},
+    baseUrl: 'http://localhost:8080/'
   },
   getters: {
   },

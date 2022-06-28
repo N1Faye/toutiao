@@ -1,5 +1,8 @@
 import request from '@/utiles/request'
-// 获取短信验证码
+import store from '@/store'
+/**
+ *登录
+ */
 export const getSMS = (mobile) => {
   return request({
     url: `/sms/codes/${mobile}`
@@ -18,6 +21,18 @@ export const login = ({ mobile, code }) => {
     url: '/authorizations',
     data: {
       mobile, code
+    }
+  })
+}
+
+/**
+ * 获取用户信息
+ */
+export const getUserInfo = () => {
+  return request({
+    url: 'user',
+    headers: {
+      Authorization: 'Bearer ' + store.state.user.token
     }
   })
 }

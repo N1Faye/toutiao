@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-nav-bar title="登录">
+    <van-nav-bar title="登录" @click-left="$router.back()">
       <van-icon name="cross" slot="left" />登录</van-nav-bar
     >
     <van-form @submit="onSubmit" ref="form">
@@ -13,7 +13,7 @@
           { pattern: /^(?:(?:\+|00)86)?1\d{10}$/, message: '手机号格式不正确' },
         ]"
       >
-        <i class="toutiao toutiao-shouji" slot="left-icon"></i>
+        <my-icon name="shouji" slot="left-icon"></my-icon>
       </van-field>
       <van-field
         v-model="code"
@@ -35,7 +35,7 @@
             >发送验证码</van-button
           >
         </template>
-        <i class="toutiao toutiao-yanzhengma" slot="left-icon"></i>
+        <my-icon name="yanzhengma" slot="left-icon"></my-icon>
       </van-field>
       <div style="margin: 16px">
         <van-button round block native-type="submit" class="loginbtn"
@@ -48,6 +48,7 @@
 
 <script>
 import { getSMS, login } from '@/api/user'
+import MyIcon from '@/components/MyIcon.vue'
 export default {
   created () { },
   data () {
@@ -68,6 +69,7 @@ export default {
         console.log(res)
         this.$store.commit('setUser', res.data.data)
         this.$toast.success('登录成功')
+        this.$router.push({ name: 'my' })
       } catch (err) {
         console.log(err)
         this.$toast.fail('登录失败')
@@ -96,14 +98,11 @@ export default {
   computed: {},
   watch: {},
   filters: {},
-  components: {}
+  components: { MyIcon }
 }
 </script>
 
 <style scoped lang='less'>
-.toutiao {
-  font-size: 37px;
-}
 .yzm {
   width: 156px;
   height: 46px;
