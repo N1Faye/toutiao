@@ -8,9 +8,12 @@ import 'vant/lib/index.less'
 import 'amfe-flexible'
 import '@/styles/index.less'
 import MyIcon from '@/components/MyIcon.vue'
-
+import * as obj from '@/filters/index'
+// Object.key()可以将obj内key组合成一个新数组
+Object.keys(obj).forEach(key => {
+  Vue.filter(key, obj[key])
+})
 Vue.use(Vant)
-
 Vue.config.productionTip = false
 
 new Vue({

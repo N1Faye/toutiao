@@ -1,5 +1,4 @@
 import request from '@/utiles/request'
-import store from '@/store'
 /**
  *登录
  */
@@ -30,9 +29,6 @@ export const login = ({ mobile, code }) => {
  */
 export const getUserInfo = () => {
   return request({
-    url: 'user',
-    headers: {
-      Authorization: 'Bearer ' + store.state.user.token
-    }
+    url: 'user'
   })
 }

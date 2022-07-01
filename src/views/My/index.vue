@@ -1,7 +1,10 @@
 <template>
   <div>
     <!-- header 登录后 -->
-    <div class="header hearder-login" v-if="user && user.token">
+    <div
+      class="header hearder-login"
+      v-if="$store.state.user && $store.state.user.token"
+    >
       <div class="avatar">
         <div class="left">
           <van-image :src="userInfo.photo" round />
@@ -55,7 +58,7 @@
       class="logout"
       type="default"
       block
-      v-if="user && user.token"
+      v-if="$store.state.user && $store.state.user.token"
       @click="logout"
       >退出登录</van-button
     >
@@ -64,7 +67,7 @@
 
 <script>
 import { getUserInfo } from '@/api/user'
-import { mapState } from 'vuex'
+// import { mapState } from 'vuex'
 import MyIcon from '@/components/MyIcon.vue'
 export default {
   name: 'My',
@@ -95,7 +98,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['user'])
+    // ...mapState(['user'])
   },
   watch: {},
   filters: {},

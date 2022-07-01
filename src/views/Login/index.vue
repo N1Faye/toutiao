@@ -53,7 +53,7 @@ export default {
   created () { },
   data () {
     return {
-      mobile: '13911111111',
+      mobile: '13911111',
       code: '246810',
       phone: '',
       sms: '',
