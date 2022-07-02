@@ -97,4 +97,8 @@ export default {
 .van-cell-group {
   margin-top: 180px;
 }
+/deep/.van-pull-refresh {
+  height: calc(100vh - 274px);
+  overflow: auto;
+}
 </style>

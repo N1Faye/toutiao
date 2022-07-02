@@ -3,7 +3,9 @@
     <!-- header -->
     <van-nav-bar fixed>
       <template #title>
-        <van-button icon="search" class="searchbtn">搜索</van-button>
+        <van-button icon="search" class="searchbtn" to="/search"
+          >搜索</van-button
+        >
       </template>
     </van-nav-bar>
     <!-- tab -->
