@@ -66,6 +66,7 @@ export default {
     }
   },
   async created () {
+    console.log(1)
     try {
       const res = await getAllArticleList()
       this.RecommengList = res.data.data.channels.filter(item => this.channels.every(item1 => item1.id !== item.id))
